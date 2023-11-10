@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
-@RestController("/items")
+@RestController
 public class ItemController {
 
     private final ItemService itemService;
 
-    @PostMapping
+    @PostMapping("/items")
     public void createItem(@RequestBody ItemRequest itemRequest) {
         itemService.createItem(itemRequest);
     }
