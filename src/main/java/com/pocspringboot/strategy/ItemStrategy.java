@@ -2,14 +2,14 @@ package com.pocspringboot.strategy;
 
 import com.pocspringboot.enumeration.ItemType;
 import com.pocspringboot.model.domain.items.ItemDomain;
-import com.pocspringboot.model.request.ItemRequest;
+import com.pocspringboot.model.request.CreateItemRequest;
 
 public interface ItemStrategy {
 
     ItemType getItemType();
 
-    ItemDomain createItem(ItemRequest itemRequest);
+    ItemDomain createItem(CreateItemRequest createItemRequest);
 
-    String returnSomethingCool(ItemRequest itemRequest);
+    String returnSomethingCool(CreateItemRequest createItemRequest);
 
 }

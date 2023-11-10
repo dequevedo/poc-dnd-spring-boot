@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.pocspringboot.exception.NotFoundException;
 import com.pocspringboot.model.domain.ProductDomain;
-import com.pocspringboot.model.request.ProductRequest;
+import com.pocspringboot.model.request.CreateProductRequest;
 import com.pocspringboot.model.response.ProductResponse;
 import com.pocspringboot.repository.ProductRepository;
 
@@ -20,10 +20,10 @@ import lombok.extern.slf4j.Slf4j;
 public class ProductService {
     private final ProductRepository productRepository;
 
-    public ProductResponse createProduct(ProductRequest productRequest) {
-        log.info("Creating new product with name: {}", productRequest.getName());
+    public ProductResponse createProduct(CreateProductRequest createProductRequest) {
+        log.info("Creating new product with name: {}", createProductRequest.getName());
 
-        ProductDomain productDomain = productRepository.save(ProductDomain.valueOf(productRequest));
+        ProductDomain productDomain = productRepository.save(ProductDomain.valueOf(createProductRequest));
 
         return ProductResponse.valueOf(productDomain);
     }

@@ -2,7 +2,6 @@ package com.pocspringboot.model.domain.items;
 
 import com.pocspringboot.enumeration.Rarity;
 import com.pocspringboot.model.domain.CharacterDomain;
-import com.pocspringboot.model.request.ItemRequest;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 

@@ -1,6 +1,6 @@
 package com.pocspringboot.controller;
 
-import com.pocspringboot.model.request.ItemRequest;
+import com.pocspringboot.model.request.CreateItemRequest;
 import com.pocspringboot.service.ItemService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +14,7 @@ public class ItemController {
     private final ItemService itemService;
 
     @PostMapping("/items")
-    public void createItem(@RequestBody ItemRequest itemRequest) {
-        itemService.createItem(itemRequest);
+    public void createItem(@RequestBody CreateItemRequest createItemRequest) {
+        itemService.createItem(createItemRequest);
     }
 }

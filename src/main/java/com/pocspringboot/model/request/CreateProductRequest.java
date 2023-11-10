@@ -14,7 +14,7 @@ import javax.validation.constraints.NotEmpty;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductRequest {
+public class CreateProductRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

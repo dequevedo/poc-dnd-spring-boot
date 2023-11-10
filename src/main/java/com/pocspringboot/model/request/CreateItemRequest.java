@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemRequest {
+public class CreateItemRequest {
 
     @NotBlank(message = "itemType is mandatory")
     private ItemType itemType;

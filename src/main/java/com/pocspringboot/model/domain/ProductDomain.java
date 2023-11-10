@@ -1,6 +1,6 @@
 package com.pocspringboot.model.domain;
 
-import com.pocspringboot.model.request.ProductRequest;
+import com.pocspringboot.model.request.CreateProductRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,9 +36,9 @@ public class ProductDomain {
     @Column(name = "internal_tag", columnDefinition = "VARCHAR(255)")
     private UUID internalTag;
 
-    public static ProductDomain valueOf(ProductRequest productRequest) {
+    public static ProductDomain valueOf(CreateProductRequest createProductRequest) {
         return ProductDomain.builder()
-                .name(productRequest.getName())
+                .name(createProductRequest.getName())
                 .build();
     }
 }

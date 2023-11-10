@@ -1,6 +1,6 @@
 package com.pocspringboot.controller;
 
-import com.pocspringboot.model.request.ProductRequest;
+import com.pocspringboot.model.request.CreateProductRequest;
 import com.pocspringboot.model.response.ProductResponse;
 import com.pocspringboot.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ public class ProductController {
 
     @PostMapping("/products")
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductResponse postProduct(@Valid @RequestBody ProductRequest product) {
+    public ProductResponse createProduct(@Valid @RequestBody CreateProductRequest product) {
         return productService.createProduct(product);
     }
 
