@@ -1,3 +1,7 @@
+### Requirements to run this project locally
+1. Java SDK 19
+2. Docker
+
 ### Running Docker containers
 1. Access the folder where docker-compose.yml is located
 2. Run the command:
