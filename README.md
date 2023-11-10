@@ -14,3 +14,8 @@ Port: 5432
 Username: postgres
 Password: changeme
 ```
+
+### Some features of this project
+1. (WIP) Factory and Strategy patterns
+2. (TODO) Spring Batch
+3. (TODO) Sync and Async functions
