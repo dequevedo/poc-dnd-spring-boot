@@ -19,7 +19,11 @@ Username: postgres
 Password: changeme
 ```
 
+### Generating a .csv file containing random characters
+In order to test the spring batch, I included a python script that generates
+characters and stores them into a .csv file which can be imported by spring.
+
 ### Some features of this project
 1. Factory and Strategy patterns
-2. (TODO) Spring Batch
+2. (WIP) Read file from Bucket S3 and import using Spring Batch
 3. (TODO) Sync and Async functions

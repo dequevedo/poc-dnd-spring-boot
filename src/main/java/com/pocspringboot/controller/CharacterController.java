@@ -1,5 +1,6 @@
 package com.pocspringboot.controller;
 
+import com.pocspringboot.model.request.CreateCharacterBatchRequest;
 import com.pocspringboot.model.request.CreateCharacterRequest;
 import com.pocspringboot.model.response.CharacterResponse;
 import com.pocspringboot.service.CharacterService;
@@ -20,6 +21,11 @@ public class CharacterController {
     @PostMapping("/character")
     public void createCharacter(@RequestBody CreateCharacterRequest createCharacterRequest) {
         characterService.createCharacter(createCharacterRequest);
+    }
+
+    @PostMapping("/character/batch")
+    public void createCharacterBatch(@RequestBody CreateCharacterBatchRequest request) {
+        characterService.createCharacterBatch(request);
     }
 
     @GetMapping("/character")
