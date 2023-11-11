@@ -1,3 +1,22 @@
+### About
+This is a personal project that I created in order to improve my skills. It is a backend for an App that can create and visualize Dungeons & Dragons character sheets (**WIP**).
+Also, it`s a great way to remember how things works and apply it to other projects.
+
+### ✅ Some features of this project
+1. Factory and Strategy patterns
+2. Python script that generates a .csv file with N characters
+2. (WIP) Read .csv file and import using Spring Batch
+2. (TODO) Read file from Bucket S3 and import using Spring Batch
+3. (TODO) Sync and Async functions
+4. (TODO) Expose the (micro?)service on some API Gateway
+5. (TODO) Implement something that uses a message broker (Maybe kafka)
+6. (TODO) SNS
+7. (TODO) SQS
+8. (TODO) Endpoint to check progress on batch import
+9. (TODO) Deploy application on AWS or Heroku
+10. (TODO) Use Jenkins
+11. (TODO) OpenAPI documentation
+
 ### Requirements to run this project locally
 1. Java SDK 19
 2. Docker
@@ -26,15 +45,18 @@ that generates Characters and stores them into a .csv file which can be imported
 ### 💡 Testing Spring Batch by importing a file from Bucket S3
 In order to test the spring batch using S3, ... WIP
 
-### ✅ Some features of this project
-1. Factory and Strategy patterns
-2. (WIP) Read file from Bucket S3 and import using Spring Batch
-3. (TODO) Sync and Async functions
-
 ### 📖 Developer`s Notes
-* Why should we use **Spring Batch**?
+🟢 Why should we use **Spring Batch**?
 1. Spring Batch is ideal for processing large volumes of data. 
 2. State Management and Transactions: It provides resources to control transactions and avoid data loss.
 3. Recovering: In case of an error it can recover from the last control point.
 4. Chunks: The usage of chunks avoids high memory consumption
+
+🟢 SOLID Principles (WIP)
+
+* S 
+* O 
+* L 
+* I 
+* D 
   

@@ -31,12 +31,7 @@ public class BatchConfig {
     @StepScope
     public CharacterReader characterReader() {
         DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer(",");
-        String[] fields = Arrays.stream(CharacterDto.class.getDeclaredFields()).map(Field::getName).toArray(String[]::new);
-
-        int[] ints = IntStream.range(0, fields.length).toArray();
-
-        lineTokenizer.setNames(fields);
-        lineTokenizer.setIncludedFields(ints);
+        lineTokenizer.setNames(getFieldNames(CharacterDto.class));
 
         BeanWrapperFieldSetMapper<CharacterDto> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
         fieldSetMapper.setTargetType(CharacterDto.class);
@@ -51,6 +46,12 @@ public class BatchConfig {
         reader.setLineMapper(lineMapper);
 
         return reader;
+    }
+
+    private String[] getFieldNames(Class<?> clazz) {
+        return Arrays.stream(clazz.getDeclaredFields())
+                .map(Field::getName)
+                .toArray(String[]::new);
     }
 
 

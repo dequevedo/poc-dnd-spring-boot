@@ -9,7 +9,7 @@ public class CharacterProcessor implements ItemProcessor<CharacterDto, Character
 
     @Override
     public CharacterDto process(CharacterDto characterDto) throws Exception {
-        characterDto.setName(characterDto.getName() + "_processed");
+//        characterDto.setName(characterDto.getName() + "_processed");
         return characterDto;
     }
 

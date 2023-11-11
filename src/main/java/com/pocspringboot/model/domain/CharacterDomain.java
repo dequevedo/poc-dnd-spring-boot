@@ -1,5 +1,6 @@
 package com.pocspringboot.model.domain;
 
+import com.pocspringboot.batch.character.dto.CharacterDto;
 import com.pocspringboot.enumeration.Gender;
 import com.pocspringboot.enumeration.Race;
 import com.pocspringboot.model.domain.items.ItemDomain;
@@ -46,6 +47,15 @@ public class CharacterDomain {
                 .age(createCharacterRequest.getAge())
                 .race(createCharacterRequest.getRace())
                 .gender(createCharacterRequest.getGender())
+                .build();
+    }
+
+    public static CharacterDomain valueOf(CharacterDto characterDto) {
+        return CharacterDomain.builder()
+                .name(characterDto.getName())
+                .age(Integer.valueOf(characterDto.getAge()))
+                .race(Race.fromName(characterDto.getRace()))
+                .gender(Gender.fromName(characterDto.getGender()))
                 .build();
     }
 
