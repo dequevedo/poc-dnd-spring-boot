@@ -1,23 +1,21 @@
 package com.pocspringboot.batch.character;
 
-import org.springframework.batch.item.*;
-import org.springframework.stereotype.Component;
+import com.pocspringboot.batch.character.dto.CharacterDto;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.FlatFileParseException;
 
-import java.util.Arrays;
-import java.util.Iterator;
-
-@Component
-public class CharacterReader implements ItemReader<String> {
-
-    private final Iterator<String> dataIterator;
-
-    public CharacterReader() {
-        this.dataIterator = Arrays.asList("item1", "item2", "item3", "item1",
-                "item2", "item3", "item1", "item2", "item3", "item1", "item2", "item3", "item1", "item2", "item3").iterator();
-    }
+@Slf4j
+public class CharacterReader extends FlatFileItemReader<CharacterDto> {
 
     @Override
-    public String read() throws Exception {
-        return dataIterator.hasNext() ? dataIterator.next() : null;
+    public CharacterDto doRead() throws Exception {
+        try {
+            return super.doRead();
+        } catch (FlatFileParseException e) {
+            log.error("Error parsing line {}. Invalid layout: {}", e.getLineNumber(), e.getInput());
+            throw e;
+        }
     }
+
 }
