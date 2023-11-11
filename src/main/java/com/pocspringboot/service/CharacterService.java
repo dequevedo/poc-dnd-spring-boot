@@ -1,5 +1,6 @@
 package com.pocspringboot.service;
 
+import com.pocspringboot.exception.NotFoundException;
 import com.pocspringboot.model.domain.CharacterDomain;
 import com.pocspringboot.model.request.CreateCharacterBatchRequest;
 import com.pocspringboot.model.request.CreateCharacterRequest;
@@ -39,6 +40,12 @@ public class CharacterService {
 
     public List<CharacterResponse> getCharacters() {
         return characterRepository.findAll().stream().map(CharacterResponse::valueOf).toList();
+    }
+
+    public CharacterResponse getCharacterById(Long id) {
+        return characterRepository.findById(id)
+                .map(CharacterResponse::valueOf)
+                .orElseThrow(NotFoundException::new);
     }
 
     //TODO add sneakythrows?
