@@ -17,6 +17,7 @@ Also, it`s a great way to remember how things works and apply it to other projec
 12. (TODO) Deploy application on AWS or Heroku
 13. (TODO) Use Jenkins
 14. (TODO) OpenAPI documentation
+15. (TODO) Unit Testing
 
 ### Requirements to run this project locally
 1. Java SDK 19
