@@ -4,18 +4,19 @@ Also, it`s a great way to remember how things works and apply it to other projec
 
 ### ✅ Some features of this project
 1. Factory and Strategy patterns
-2. Python script that generates a .csv file with N characters
-2. (WIP) Read .csv file and import using Spring Batch
-2. (TODO) Read file from Bucket S3 and import using Spring Batch
-3. (TODO) Sync and Async functions
-4. (TODO) Expose the (micro?)service on some API Gateway
-5. (TODO) Implement something that uses a message broker (Maybe kafka)
-6. (TODO) SNS
-7. (TODO) SQS
-8. (TODO) Endpoint to check progress on batch import
-9. (TODO) Deploy application on AWS or Heroku
-10. (TODO) Use Jenkins
-11. (TODO) OpenAPI documentation
+2. Docker and Docker Compose
+3. Spring Batch
+4. Python script that generates a .csv file with N characters
+5. (TODO) Read file from Bucket S3 and import using Spring Batch
+6. (TODO) Sync and Async functions
+7. (TODO) Expose the (micro?)service on some API Gateway
+8. (TODO) Implement something that uses a message broker (Maybe kafka)
+9. (TODO) SNS
+10. (TODO) SQS
+11. (TODO) Endpoint to check progress on batch import
+12. (TODO) Deploy application on AWS or Heroku
+13. (TODO) Use Jenkins
+14. (TODO) OpenAPI documentation
 
 ### Requirements to run this project locally
 1. Java SDK 19
