@@ -21,9 +21,14 @@ public class TrainingController {
         return service.reverseString(request);
     }
 
-    @PostMapping("/sum-products")
-    public Double sumProducts(@Valid @RequestBody ProductListRequest request) {
-        return service.sumProducts(request);
+    @PostMapping("/products-sum")
+    public Double calculateProductsPriceSum(@Valid @RequestBody ProductListRequest request) {
+        return service.calculateProductsPriceSum(request);
+    }
+
+    @PostMapping("/products-average")
+    public Double calculateProductPriceAverage(@Valid @RequestBody ProductListRequest request) {
+        return service.calculateProductPriceAverage(request);
     }
 
 }

@@ -18,13 +18,20 @@ public class TrainingService {
         return Integer.parseInt(reversedString) * signal;
     }
 
-    public Double sumProducts(ProductListRequest request) {
+    public Double calculateProductsPriceSum(ProductListRequest request) {
         return request.getProducts().stream()
                 .map(Product::getPrice)
                 .reduce(0.0, (accumulator, combiner) -> {
                     log.info(String.format("Accumulator: %s Combiner: %s", accumulator, combiner));
                     return accumulator + combiner;
                 });
+    }
+
+    public Double calculateProductPriceAverage(ProductListRequest request) {
+        Double sum = request.getProducts().stream()
+                .map(Product::getPrice)
+                .reduce(0.0, Double::sum);
+        return sum/request.getProducts().size();
     }
 
 }
