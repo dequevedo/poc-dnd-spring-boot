@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TrainingSumProductsRequest {
+public class ProductListRequest {
 
     private List<Product> products;
 

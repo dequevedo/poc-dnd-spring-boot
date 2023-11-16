@@ -2,7 +2,7 @@ package com.pocspringboot.service;
 
 import com.pocspringboot.model.request.training.Product;
 import com.pocspringboot.model.request.training.TrainingNumberReverseRequest;
-import com.pocspringboot.model.request.training.TrainingSumProductsRequest;
+import com.pocspringboot.model.request.training.ProductListRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class TrainingService {
         return Integer.parseInt(reversedString) * signal;
     }
 
-    public Double sumProducts(TrainingSumProductsRequest request) {
+    public Double sumProducts(ProductListRequest request) {
         return request.getProducts().stream()
                 .map(Product::getPrice)
                 .reduce(0.0, (accumulator, combiner) -> {

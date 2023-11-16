@@ -1,7 +1,7 @@
 package com.pocspringboot.controller;
 
 import com.pocspringboot.model.request.training.TrainingNumberReverseRequest;
-import com.pocspringboot.model.request.training.TrainingSumProductsRequest;
+import com.pocspringboot.model.request.training.ProductListRequest;
 import com.pocspringboot.service.TrainingService;
 import lombok.AllArgsConstructor;
 
@@ -22,7 +22,7 @@ public class TrainingController {
     }
 
     @PostMapping("/sum-products")
-    public Double sumProducts(@Valid @RequestBody TrainingSumProductsRequest request) {
+    public Double sumProducts(@Valid @RequestBody ProductListRequest request) {
         return service.sumProducts(request);
     }
 
