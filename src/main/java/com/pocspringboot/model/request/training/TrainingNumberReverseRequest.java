@@ -1,4 +1,4 @@
-package com.pocspringboot.model.request;
+package com.pocspringboot.model.request.training;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

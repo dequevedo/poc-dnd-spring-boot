@@ -2,15 +2,11 @@ package com.pocspringboot.controller;
 
 import com.pocspringboot.model.request.CreateCharacterBatchRequest;
 import com.pocspringboot.model.request.CreateCharacterRequest;
-import com.pocspringboot.model.request.TrainingNumberReverseRequest;
 import com.pocspringboot.model.response.CharacterResponse;
 import com.pocspringboot.service.CharacterService;
-import com.pocspringboot.service.TrainingService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @AllArgsConstructor
