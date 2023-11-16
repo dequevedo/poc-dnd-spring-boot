@@ -15,7 +15,7 @@ public class TrainingController {
 
     private final TrainingService service;
 
-    @PostMapping("/number")
+    @PostMapping("/number-reverse")
     public Integer numberReverse(@Valid @RequestBody TrainingNumberReverseRequest request) {
         return service.reverseString(request);
     }
