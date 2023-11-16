@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -29,6 +30,11 @@ public class TrainingController {
     @PostMapping("/products-average")
     public Double calculateProductPriceAverage(@Valid @RequestBody ProductListRequest request) {
         return service.calculateProductPriceAverage(request);
+    }
+
+    @PostMapping("/to-lower-case")
+    public List<String> convertUppercaseToLowercase(@Valid @RequestBody ProductListRequest request) {
+        return service.convertUppercaseToLowercase(request);
     }
 
 }

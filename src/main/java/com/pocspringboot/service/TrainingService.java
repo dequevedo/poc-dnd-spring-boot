@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -32,6 +34,13 @@ public class TrainingService {
                 .mapToDouble(Product::getPrice)
                 .average()
                 .orElse(0.0);
+    }
+
+    public List<String> convertUppercaseToLowercase(ProductListRequest request) {
+        return request.getProducts().stream()
+                .map(Product::getName)
+                .map(String::toLowerCase)
+                .toList();
     }
 
 }
