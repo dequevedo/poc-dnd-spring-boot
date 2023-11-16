@@ -28,10 +28,10 @@ public class TrainingService {
     }
 
     public Double calculateProductPriceAverage(ProductListRequest request) {
-        Double sum = request.getProducts().stream()
-                .map(Product::getPrice)
-                .reduce(0.0, Double::sum);
-        return sum/request.getProducts().size();
+        return request.getProducts().stream()
+                .mapToDouble(Product::getPrice)
+                .average()
+                .orElse(0.0);
     }
 
 }
