@@ -3,6 +3,7 @@ package com.pocspringboot.service;
 import com.pocspringboot.model.request.training.Product;
 import com.pocspringboot.model.request.training.TrainingNumberReverseRequest;
 import com.pocspringboot.model.request.training.ProductListRequest;
+import com.pocspringboot.model.response.training.SumEvenOddResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,20 @@ public class TrainingService {
                 .map(Product::getName)
                 .map(String::toLowerCase)
                 .toList();
+    }
+
+    public SumEvenOddResponse calculateSumEvenOdd(ProductListRequest request) {
+        Long evenSum = request.getProducts().stream()
+                .map(Product::getId)
+                .reduce(0L, (accumulator, id) -> {
+                    boolean isEven = id%2==0;
+                    return isEven ? accumulator + 1 : accumulator;
+                });
+
+        return SumEvenOddResponse.builder()
+                .even(evenSum)
+                .odd(request.getProducts().size() - evenSum)
+                .build();
     }
 
 }

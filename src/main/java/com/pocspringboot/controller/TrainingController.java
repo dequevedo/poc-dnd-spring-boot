@@ -2,6 +2,7 @@ package com.pocspringboot.controller;
 
 import com.pocspringboot.model.request.training.TrainingNumberReverseRequest;
 import com.pocspringboot.model.request.training.ProductListRequest;
+import com.pocspringboot.model.response.training.SumEvenOddResponse;
 import com.pocspringboot.service.TrainingService;
 import lombok.AllArgsConstructor;
 
@@ -35,6 +36,11 @@ public class TrainingController {
     @PostMapping("/to-lower-case")
     public List<String> convertUppercaseToLowercase(@Valid @RequestBody ProductListRequest request) {
         return service.convertUppercaseToLowercase(request);
+    }
+
+    @PostMapping("/sum-even-odd")
+    public SumEvenOddResponse calculateSumEvenOdd(@Valid @RequestBody ProductListRequest request) {
+        return service.calculateSumEvenOdd(request);
     }
 
 }
