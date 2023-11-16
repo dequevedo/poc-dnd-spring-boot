@@ -18,6 +18,7 @@ Also, it`s a great way to remember how things works and apply it to other projec
 13. (TODO) Use Jenkins
 14. (TODO) OpenAPI documentation
 15. (TODO) Unit Testing
+16. (TODO) ChatGPT integration (Maybe for image, description generation)
 
 ### Requirements to run this project locally
 1. Java SDK 19
