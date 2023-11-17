@@ -2,6 +2,7 @@ package com.pocspringboot.controller;
 
 import com.pocspringboot.model.request.training.TrainingNumberReverseRequest;
 import com.pocspringboot.model.request.training.ProductListRequest;
+import com.pocspringboot.model.response.training.ProductListResponse;
 import com.pocspringboot.model.response.training.SumEvenOddResponse;
 import com.pocspringboot.service.TrainingService;
 import lombok.AllArgsConstructor;
@@ -41,6 +42,11 @@ public class TrainingController {
     @PostMapping("/sum-even-odd")
     public SumEvenOddResponse calculateSumEvenOdd(@Valid @RequestBody ProductListRequest request) {
         return service.calculateSumEvenOdd(request);
+    }
+
+    @PostMapping("/remove-duplicate-id")
+    public ProductListResponse removeDuplicatesIdFromRequest(@Valid @RequestBody ProductListRequest request) {
+        return service.removeDuplicatesIdFromRequest(request);
     }
 
 }

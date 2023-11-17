@@ -3,12 +3,15 @@ package com.pocspringboot.service;
 import com.pocspringboot.model.request.training.Product;
 import com.pocspringboot.model.request.training.TrainingNumberReverseRequest;
 import com.pocspringboot.model.request.training.ProductListRequest;
+import com.pocspringboot.model.response.training.ProductListResponse;
 import com.pocspringboot.model.response.training.SumEvenOddResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -55,6 +58,25 @@ public class TrainingService {
         return SumEvenOddResponse.builder()
                 .even(evenSum)
                 .odd(request.getProducts().size() - evenSum)
+                .build();
+    }
+
+    public ProductListResponse removeDuplicatesIdFromRequest(ProductListRequest request) {
+        Set<Long> uniqueIds = request.getProducts().stream()
+                .map(Product::getId)
+                .collect(Collectors.toSet());
+        log.info(String.format("uniqueIds: %s", uniqueIds));
+
+        List<Product> productList = request.getProducts().stream()
+                .filter(product -> {
+                    boolean isInSet =  uniqueIds.contains(product.getId());
+                    if(isInSet) uniqueIds.remove(product.getId());
+                    return isInSet;
+                })
+                .toList();
+
+        return ProductListResponse.builder()
+                .products(productList)
                 .build();
     }
 
