@@ -56,4 +56,9 @@ public class TrainingController {
     public Long countLetter(@PathVariable String letter, @Valid @RequestBody ProductListRequest request) {
         return service.countLetter(request, letter);
     }
+
+    @PostMapping("/sort-alphabetical")
+    public ProductListResponse sortAlphabetical(@Valid @RequestBody ProductListRequest request) {
+        return service.sortAlphabetical(request);
+    }
 }

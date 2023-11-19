@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -51,7 +52,7 @@ public class TrainingService {
         Long evenSum = request.getProducts().stream()
                 .map(Product::getId)
                 .reduce(0L, (accumulator, id) -> {
-                    boolean isEven = id%2==0;
+                    boolean isEven = id % 2 == 0;
                     return isEven ? accumulator + 1 : accumulator;
                 });
 
@@ -69,8 +70,8 @@ public class TrainingService {
 
         List<Product> productList = request.getProducts().stream()
                 .filter(product -> {
-                    boolean isInSet =  uniqueIds.contains(product.getId());
-                    if(isInSet) uniqueIds.remove(product.getId());
+                    boolean isInSet = uniqueIds.contains(product.getId());
+                    if (isInSet) uniqueIds.remove(product.getId());
                     return isInSet;
                 })
                 .toList();
@@ -85,6 +86,14 @@ public class TrainingService {
                 .map(Product::getName)
                 .filter(name -> name.startsWith(letter))
                 .count();
+    }
+
+    public ProductListResponse sortAlphabetical(ProductListRequest request) {
+        ProductListResponse response = new ProductListResponse();
+        request.getProducts().stream()
+                .sorted(Comparator.comparing(o -> o.getName().toLowerCase()))
+                .forEach(p -> response.getProducts().add(p));
+        return response;
     }
 
 }
