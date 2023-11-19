@@ -1,5 +1,6 @@
 package com.pocspringboot.controller;
 
+import com.pocspringboot.model.request.training.FindMinMaxRequest;
 import com.pocspringboot.model.request.training.TrainingNumberReverseRequest;
 import com.pocspringboot.model.request.training.ProductListRequest;
 import com.pocspringboot.model.response.training.FindMaxMinResponse;
@@ -64,7 +65,7 @@ public class TrainingController {
     }
 
     @PostMapping("/find-min-max")
-    public FindMaxMinResponse findMinMax(@Valid @RequestBody ProductListRequest request) {
+    public FindMaxMinResponse findMinMax(@Valid @RequestBody FindMinMaxRequest request) {
         return service.findMinMax(request);
     }
 }

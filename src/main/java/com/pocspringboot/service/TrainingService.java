@@ -1,12 +1,15 @@
 package com.pocspringboot.service;
 
-import com.pocspringboot.exception.NotFoundException;
+import com.pocspringboot.enumeration.MinMaxStrategyType;
+import com.pocspringboot.model.request.training.FindMinMaxRequest;
 import com.pocspringboot.model.request.training.Product;
 import com.pocspringboot.model.request.training.TrainingNumberReverseRequest;
 import com.pocspringboot.model.request.training.ProductListRequest;
 import com.pocspringboot.model.response.training.FindMaxMinResponse;
 import com.pocspringboot.model.response.training.ProductListResponse;
 import com.pocspringboot.model.response.training.SumEvenOddResponse;
+import com.pocspringboot.strategy.FindMinMaxStrategy;
+import com.pocspringboot.strategy.factory.MinMaxFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,8 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class TrainingService {
+
+    private final MinMaxFactory minMaxFactory;
 
     public Integer reverseString(TrainingNumberReverseRequest request) {
         int signal = (int) Math.signum(request.getNumber());
@@ -98,19 +103,9 @@ public class TrainingService {
         return response;
     }
 
-    public FindMaxMinResponse findMinMax(ProductListRequest request) {
-        Product min = request.getProducts().stream()
-                .min((o1, o2) -> o1.getPrice().compareTo(o2.getPrice()))
-                .orElseThrow(NotFoundException::new);
-
-        Product max = request.getProducts().stream()
-                .max((o1, o2) -> o1.getPrice().compareTo(o2.getPrice()))
-                .orElseThrow(NotFoundException::new);
-
-        return FindMaxMinResponse.builder()
-                .min(min)
-                .max(max)
-                .build();
+    public FindMaxMinResponse findMinMax(FindMinMaxRequest request) {
+        FindMinMaxStrategy findMinMaxStrategy = minMaxFactory.getFindMinMaxStrategy(request.getStrategy());
+        return findMinMaxStrategy.findMinMaxResponse(request.getProducts());
     }
 
 }
