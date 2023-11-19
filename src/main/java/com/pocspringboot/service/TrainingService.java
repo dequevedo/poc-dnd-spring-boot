@@ -104,7 +104,7 @@ public class TrainingService {
     }
 
     public FindMaxMinResponse findMinMax(FindMinMaxRequest request) {
-        FindMinMaxStrategy findMinMaxStrategy = minMaxFactory.getFindMinMaxStrategy(request.getStrategy());
+        FindMinMaxStrategy findMinMaxStrategy = minMaxFactory.getFindMinMaxStrategy(MinMaxStrategyType.fromName(request.getStrategy()));
         return findMinMaxStrategy.findMinMaxResponse(request.getProducts());
     }
 

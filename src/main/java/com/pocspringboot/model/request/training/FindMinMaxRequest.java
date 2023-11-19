@@ -1,6 +1,6 @@
 package com.pocspringboot.model.request.training;
 
-import com.pocspringboot.enumeration.MinMaxStrategyType;
+import com.pocspringboot.validation.annotations.ValidMinMaxStrategyType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 public class FindMinMaxRequest {
 
-    private MinMaxStrategyType strategy;
+    @ValidMinMaxStrategyType
+    private String strategy;
 
     private List<Product> products;
 

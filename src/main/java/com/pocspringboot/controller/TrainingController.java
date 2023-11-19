@@ -9,10 +9,10 @@ import com.pocspringboot.model.response.training.SumEvenOddResponse;
 import com.pocspringboot.service.TrainingService;
 import lombok.AllArgsConstructor;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 
