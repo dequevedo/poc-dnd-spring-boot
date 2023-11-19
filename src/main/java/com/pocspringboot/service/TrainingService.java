@@ -80,4 +80,11 @@ public class TrainingService {
                 .build();
     }
 
+    public Long countLetter(ProductListRequest request, String letter) {
+        return request.getProducts().stream()
+                .map(Product::getName)
+                .filter(name -> name.startsWith(letter))
+                .count();
+    }
+
 }

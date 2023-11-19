@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 
@@ -28,6 +29,8 @@ public class TrainingController {
     public Double calculateProductsPriceSum(@Valid @RequestBody ProductListRequest request) {
         return service.calculateProductsPriceSum(request);
     }
+
+    //Exercises below are taken from: https://www.w3resource.com/java-exercises/stream/
 
     @PostMapping("/products-average")
     public Double calculateProductPriceAverage(@Valid @RequestBody ProductListRequest request) {
@@ -49,4 +52,8 @@ public class TrainingController {
         return service.removeDuplicatesIdFromRequest(request);
     }
 
+    @PostMapping("/count-letter/{letter}")
+    public Long countLetter(@PathVariable String letter, @Valid @RequestBody ProductListRequest request) {
+        return service.countLetter(request, letter);
+    }
 }
