@@ -1,8 +1,10 @@
 package com.pocspringboot.service;
 
+import com.pocspringboot.exception.NotFoundException;
 import com.pocspringboot.model.request.training.Product;
 import com.pocspringboot.model.request.training.TrainingNumberReverseRequest;
 import com.pocspringboot.model.request.training.ProductListRequest;
+import com.pocspringboot.model.response.training.FindMaxMinResponse;
 import com.pocspringboot.model.response.training.ProductListResponse;
 import com.pocspringboot.model.response.training.SumEvenOddResponse;
 import lombok.RequiredArgsConstructor;
@@ -94,6 +96,21 @@ public class TrainingService {
                 .sorted(Comparator.comparing(o -> o.getName().toLowerCase()))
                 .forEach(p -> response.getProducts().add(p));
         return response;
+    }
+
+    public FindMaxMinResponse findMinMax(ProductListRequest request) {
+        Product min = request.getProducts().stream()
+                .min((o1, o2) -> o1.getPrice().compareTo(o2.getPrice()))
+                .orElseThrow(NotFoundException::new);
+
+        Product max = request.getProducts().stream()
+                .max((o1, o2) -> o1.getPrice().compareTo(o2.getPrice()))
+                .orElseThrow(NotFoundException::new);
+
+        return FindMaxMinResponse.builder()
+                .min(min)
+                .max(max)
+                .build();
     }
 
 }

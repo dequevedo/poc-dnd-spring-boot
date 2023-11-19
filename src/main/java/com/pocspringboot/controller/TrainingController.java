@@ -2,6 +2,7 @@ package com.pocspringboot.controller;
 
 import com.pocspringboot.model.request.training.TrainingNumberReverseRequest;
 import com.pocspringboot.model.request.training.ProductListRequest;
+import com.pocspringboot.model.response.training.FindMaxMinResponse;
 import com.pocspringboot.model.response.training.ProductListResponse;
 import com.pocspringboot.model.response.training.SumEvenOddResponse;
 import com.pocspringboot.service.TrainingService;
@@ -60,5 +61,10 @@ public class TrainingController {
     @PostMapping("/sort-alphabetical")
     public ProductListResponse sortAlphabetical(@Valid @RequestBody ProductListRequest request) {
         return service.sortAlphabetical(request);
+    }
+
+    @PostMapping("/find-min-max")
+    public FindMaxMinResponse findMinMax(@Valid @RequestBody ProductListRequest request) {
+        return service.findMinMax(request);
     }
 }
