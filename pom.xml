@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>19.0.2</java.version>
+		<maven.compiler.release>19</maven.compiler.release>
 	</properties>
 
 	<dependencies>
