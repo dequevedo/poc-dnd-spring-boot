@@ -54,9 +54,9 @@ public class TrainingController {
         return service.removeDuplicatesIdFromRequest(request);
     }
 
-    @PostMapping("/count-letter/{letter}")
-    public Long countLetter(@PathVariable String letter, @Valid @RequestBody ProductListRequest request) {
-        return service.countLetter(request, letter);
+    @PostMapping("/count-first-letter/{letter}")
+    public Long countFirstLetter(@PathVariable String letter, @Valid @RequestBody ProductListRequest request) {
+        return service.countFirstLetter(request, letter);
     }
 
     @PostMapping("/sort-alphabetical")
