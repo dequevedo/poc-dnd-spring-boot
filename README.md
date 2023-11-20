@@ -7,14 +7,14 @@ Also, it`s a great way to remember how things works and apply it to other projec
 2. Docker and Docker Compose
 3. Spring Batch
 4. Python script that generates a .csv file with N characters
-5. (TODO) Read file from Bucket S3 and import using Spring Batch
-6. (TODO) Sync and Async functions
-7. (TODO) Expose the (micro?)service on some API Gateway
-8. (TODO) Implement something that uses a message broker (Maybe kafka)
-9. (TODO) SNS
-10. (TODO) SQS
-11. (TODO) Endpoint to check progress on batch import
-12. (TODO) Deploy application on AWS or Heroku
+5. (WIP) Deploy application on AWS or Heroku
+6. (TODO) Read file from Bucket S3 and import using Spring Batch
+7. (TODO) Sync and Async functions
+8. (TODO) Expose the (micro?)service on some API Gateway
+9. (TODO) Implement something that uses a message broker (Maybe kafka)
+10. (TODO) SNS
+11. (TODO) SQS
+12. (TODO) Endpoint to check progress on batch import
 13. (TODO) Use Jenkins
 14. (TODO) OpenAPI documentation
 15. (TODO) Unit Testing (Parameterized Tests)
