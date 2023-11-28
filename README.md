@@ -7,7 +7,7 @@ Also, it`s a great way to remember how things works and apply it to other projec
 2. Docker and Docker Compose
 3. Spring Batch
 4. Python script that generates a .csv file with N characters
-5. (WIP) Deploy application on AWS or Heroku
+5. (WIP) Deploy application on AWS EC2
 6. (TODO) Read file from Bucket S3 and import using Spring Batch
 7. (TODO) Sync and Async functions
 8. (TODO) Expose the (micro?)service on some API Gateway
@@ -64,4 +64,47 @@ In order to test the spring batch using S3, ... WIP
 * L 
 * I 
 * D 
-  
+
+🟢 Useful EC2 Commands
+Connecting to an EC2 instance
+```
+ssh ec2-user@{ec2-ip}
+```
+
+Updating dependencies
+```
+sudo yum update
+```
+
+Installing Java
+```
+sudo yum install java-17
+```
+
+Packaging application into a .jar file
+```
+mvn clean package
+```
+
+Uploading .jar to EC2
+```
+scp target/poc-spring-boot-0.0.1-SNAPSHOT.jar ec2-user@{ec2-ip}:/home/ec2-user
+```
+
+Executing .jar from inside EC2
+```
+java -jar poc-spring-boot-0.0.1-SNAPSHOT.jar
+```
+
+Startup script
+```
+#!/bin/bash
+cd /home/ec2-user
+aws s3 cp s3://{bucket-name}/poc-spring-boot-0.0.1-SNAPSHOT.jar .
+java -jar poc-spring-boot-0.0.1-SNAPSHOT.jar
+```
+
+Uploading .jar to S3
+```
+s3 cp target/poc-spring-boot-0.0.1-SNAPSHOT.jar s3://{bucket-name}/poc-spring-boot-0.0.1-SNAPSHOT.jar
+```
