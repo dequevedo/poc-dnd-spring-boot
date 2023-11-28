@@ -31,17 +31,9 @@ public class ProductService {
     public List<ProductResponse> getProducts() {
         log.info("Getting all products");
 
-        // List<ProductResponse> productsResponse = productRepository
-        // .findAll().stream()
-        // .map(ProductResponse::valueOf).toList();
-
-        List<ProductResponse> productsResponse = new ArrayList<>();
-
-        productsResponse.add(new ProductResponse(1L, "Teclado", 150f));
-        productsResponse.add(new ProductResponse(1L, "Mouse", 300f));
-        productsResponse.add(new ProductResponse(1L, "Teclado Barato", 20f));
-        productsResponse.add(new ProductResponse(1L, "Monitor", 300f));
-        productsResponse.add(new ProductResponse(1L, "Teclado Gamer", 800f));
+        List<ProductResponse> productsResponse = productRepository
+                .findAll().stream()
+                .map(ProductResponse::valueOf).toList();
 
         log.info("Products retrieved: {}", productsResponse);
 
