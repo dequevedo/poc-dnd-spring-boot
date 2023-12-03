@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.function.Predicate;
 
 
 @AllArgsConstructor
@@ -84,5 +85,10 @@ public class TrainingController {
     @GetMapping("/functional/supplier")
     public List<String> functionalSupplier() {
         return service.functionalSupplier();
+    }
+
+    @GetMapping("/functional/predicate/{word}")
+    public String functionalPredicate(@PathVariable String word) {
+        return service.functionalPredicate(word);
     }
 }

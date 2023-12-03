@@ -19,6 +19,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -120,6 +121,13 @@ public class TrainingService {
     public List<String> functionalSupplier() {
         Supplier<List<String>> supplier = () -> Arrays.asList("1", "2", "3");
         return supplier.get();
+    }
+
+    public String functionalPredicate(String word) {
+        Predicate<String> hasTenChars = str -> str.chars().count() == 10;
+        String success = String.format("%s has 10 letters", word);
+        String fail = String.format("%s doesn't have 10 letters", word);
+        return hasTenChars.test(word) ? success : fail;
     }
 
 }
