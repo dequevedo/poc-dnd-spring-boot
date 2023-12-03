@@ -19,6 +19,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -128,6 +129,11 @@ public class TrainingService {
         String success = String.format("%s has 10 letters", word);
         String fail = String.format("%s doesn't have 10 letters", word);
         return hasTenChars.test(word) ? success : fail;
+    }
+
+    public String functionalFunction(String word) {
+        Function<String, Integer> countChars = input -> Math.toIntExact(input.chars().count());
+        return String.format("The given word has %s letters", countChars.apply(word));
     }
 
 }

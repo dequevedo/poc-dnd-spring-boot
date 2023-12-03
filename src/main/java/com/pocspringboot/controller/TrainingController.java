@@ -91,4 +91,9 @@ public class TrainingController {
     public String functionalPredicate(@PathVariable String word) {
         return service.functionalPredicate(word);
     }
+
+    @GetMapping("/functional/function/{word}")
+    public String functionalFunction(@PathVariable String word) {
+        return service.functionalFunction(word);
+    }
 }
