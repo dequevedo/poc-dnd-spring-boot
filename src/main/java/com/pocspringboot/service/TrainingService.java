@@ -14,10 +14,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -113,6 +115,11 @@ public class TrainingService {
         Consumer<String> consumer = input -> log.info(input.concat("Something else"));
         consumer.accept("Input1");
         consumer.accept("Input2");
+    }
+
+    public List<String> functionalSupplier() {
+        Supplier<List<String>> supplier = () -> Arrays.asList("1", "2", "3");
+        return supplier.get();
     }
 
 }

@@ -80,4 +80,9 @@ public class TrainingController {
         service.functionalConsumer();
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/functional/supplier")
+    public List<String> functionalSupplier() {
+        return service.functionalSupplier();
+    }
 }
