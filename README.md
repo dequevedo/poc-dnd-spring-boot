@@ -7,15 +7,15 @@ Also, it`s a great way to remember how things works and apply it to other projec
 2. Docker and Docker Compose
 3. Spring Batch
 4. Python script that generates a .csv file with N characters
-5. (WIP) Deploy application on AWS EC2
-6. (TODO) Read file from Bucket S3 and import using Spring Batch
+5. Deploy application on AWS EC2
+6. (WIP) Jenkins
 7. (TODO) Sync and Async functions
 8. (TODO) Expose the (micro?)service on some API Gateway
 9. (TODO) Implement something that uses a message broker (Maybe kafka)
 10. (TODO) SNS
 11. (TODO) SQS
 12. (TODO) Endpoint to check progress on batch import
-13. (TODO) Use Jenkins
+13. (TODO) Read file from Bucket S3 and import using Spring Batch
 14. (TODO) OpenAPI documentation
 15. (TODO) Unit Testing (Parameterized Tests)
 16. (TODO) ChatGPT integration (Maybe for image, description generation)
