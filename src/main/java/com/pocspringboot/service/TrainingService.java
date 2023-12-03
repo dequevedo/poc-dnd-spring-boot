@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -106,6 +107,12 @@ public class TrainingService {
     public FindMaxMinResponse findMinMax(FindMinMaxRequest request) {
         FindMinMaxStrategy findMinMaxStrategy = minMaxFactory.getFindMinMaxStrategy(MinMaxStrategyType.fromName(request.getStrategy()));
         return findMinMaxStrategy.findMinMaxResponse(request.getProducts());
+    }
+
+    public void functionalConsumer() {
+        Consumer<String> consumer = input -> log.info(input.concat("Something else"));
+        consumer.accept("Input1");
+        consumer.accept("Input2");
     }
 
 }

@@ -8,9 +8,13 @@ import com.pocspringboot.model.response.training.ProductListResponse;
 import com.pocspringboot.model.response.training.SumEvenOddResponse;
 import com.pocspringboot.service.TrainingService;
 import lombok.AllArgsConstructor;
-
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -67,5 +71,13 @@ public class TrainingController {
     @PostMapping("/find-min-max")
     public FindMaxMinResponse findMinMax(@Valid @RequestBody FindMinMaxRequest request) {
         return service.findMinMax(request);
+    }
+
+    //Java Functional Interfaces
+
+    @GetMapping("/functional/consumer")
+    public ResponseEntity<String> functionalConsumer() {
+        service.functionalConsumer();
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
